@@ -6,9 +6,10 @@ def arithmetic_arranger(problems, val=False):
 
     # list of all operations in str format
     operations = list(map(lambda x: x.split()[1], problems))
-    if set(operations) != {'+', '-'} and len(set(operations)) != 2:
-        arranged_problems = "Error: Operator must be '+' or '-'."
-        return arranged_problems
+    for opt in operations:
+        if opt not in {'+', '-'}:
+            arranged_problems = "Error: Operator must be '+' or '-'."
+            return arranged_problems
 
     numbers = []  # list of all operands in str format
     for i in problems:
